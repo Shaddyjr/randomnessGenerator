@@ -13,11 +13,11 @@ export default class Random{
     }
     
     numberGuard(num){
-        if (num != undefined && typeof num != "number") throw new TypeError;
+        if (num !== undefined && typeof num !== "number") throw new TypeError();
     }
 
     objectGuard(obj){
-        if (typeof obj !== "object") throw new TypeError;
+        if (typeof obj !== "object") throw new TypeError();
     }
 
     /**
@@ -82,7 +82,7 @@ export default class Random{
             sum += val;
         }
         if(sum === 0) throw RangeError(`Probabilities cannot all be zero`);
-        if(sum != 1){ // convert to probabilities
+        if(sum !== 1){ // convert to probabilities
             for(const key in obj) obj[key] /= sum;
         }
 

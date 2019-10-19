@@ -1,18 +1,18 @@
 import Random from "./random";
 
 export default class Words{
-    constructor(doubleLetterRate = .25, options = {}){
-        this.random = new Random;
+    constructor({doubleLetterRate, specialChars} = {doubleLetterRate:.25}){
+        this.random = new Random();
         this.doubleLetterRate = doubleLetterRate;
-        this.specialChars = ["-","'"];
+        this.specialChars = specialChars;
     }
 
     guardString(str){
-        if(str !== undefined && typeof str !== "string") throw new TypeError;
+        if(str !== undefined && typeof str !== "string") throw new TypeError();
     }
     
     guardNumber(num){
-        if(num !== undefined && typeof num !== "number") throw new TypeError;
+        if(num !== undefined && typeof num !== "number") throw new TypeError();
     }
 
     capFirst(word){
@@ -21,17 +21,16 @@ export default class Words{
     }
 
     words(num = 10){
+        this.guardNumber(num);
         const out = new Array(num);
         for(let i = 0; i< num; i++) out[i] = this.word();
         return out; 
     }
 
-    name(surname){
-
-    }
-
     word(num = 2, delim = " "){ // returns single random word
         // sections, specialCharFlag, surname
+        this.guardNumber(num);
+        this.guardString(delim);
         const output = new Array(num);
         for(let i = 0; i < num; i++) output[i] = this.compileWord();
         return output.join(delim);

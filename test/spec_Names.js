@@ -40,15 +40,20 @@ describe('words', function() {
             expect(()=>words.word(1,1)).to.throw(TypeError);
         });
     });
-    xdescribe('.word()', function() {
-        xit('should', function() {
-            
+    describe('.constructor()', function() {
+        it('should accept options object as argument with "doubleLetterRate" to determine frequency of double letters', function() {
+            const options = {doubleLetterRate : 1.0};
+            const words = new Words(options);
+            const word = words.word(1).toLowerCase();
+            const doubles = new Set(word).size < word.length;
+            expect(doubles).to.be.true;
+        }); 
+        it('should accept options object as argument with "specialChars" to determine which special chars are included', function() {
+            const options = {doubleLetterRate : 1.0};
+            const words = new Words(options);
+            const word = words.word(1).toLowerCase();
+            const doubles = new Set(word).size < word.length;
+            expect(doubles).to.be.true;
         }); 
     });
-    xdescribe('.word()', function() {
-        xit('should', function() {
-            
-        }); 
-    });
-    
 });
