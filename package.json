@@ -34,7 +34,7 @@
     "@babel/preset-env": "^7.6.2",
     "babel-core": "^6.26.3",
     "babel-register": "^6.26.0",
-    "mocha": "^6.2.1"
+    "mocha": "^10.2.0"
   },
   "babel": {
     "presets": [
